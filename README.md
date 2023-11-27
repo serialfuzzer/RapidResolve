@@ -28,4 +28,25 @@ async function run() {
 
 
 run()
+
+/* Output */
+`
+[
+  'Current number 1',
+  'Current number 2',
+  'Current number 3',
+  'Current number 4',
+  'Current number 5',
+  'Current number 6',
+  'Current number 7',
+  'Current number 8',
+  'Current number 9',
+  'Current number 10',
+  'Current number 11',
+  'Current number 12',
+  'Current number 13',
+  'Current number 14',
+  'Current number 15'
+]
+`
 ```
