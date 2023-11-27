@@ -50,3 +50,38 @@ run()
 ]
 `
 ```
+
+# Example 2
+```js
+const RapidResolve = require("./index");
+
+
+async function sayNumber(n){
+    let str = `Current number ${n}`;
+    return str;
+}
+
+let testArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+
+async function run() {
+    let SlowEngineDescription = new RapidResolve(5,2,0); // Slow Engine
+    let SlowEngine = SlowEngineDescription.make(sayNumber, testArray);
+    let output = await SlowEngine.execute();
+    console.log(`Slow engine took: ${SlowEngine.timeTaken}ms`)
+    let FastEngineDescription = new RapidResolve(10,0,0); // Fast Engine
+    let FastEngine = FastEngineDescription.make(sayNumber, testArray);
+    let fastEngineOutput = await FastEngine.execute();
+    console.log(`Fast engine took: ${FastEngine.timeTaken}ms`)
+    
+}
+
+
+run()
+
+/* Output */
+`
+Slow engine took: 6024ms
+Fast engine took: 4ms
+`
+```

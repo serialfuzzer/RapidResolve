@@ -9,6 +9,7 @@ class Executor {
     }
 
     async execute() {
+        let currentTime = new Date();
         let func = this.fn;
         let argsArray = this.arguments;
         let delay = this.delay;
@@ -24,6 +25,9 @@ class Executor {
             resolvedPromises.map(val=>resultArray.push(val))
             await Helper.delay( delay );
         }
+        let timeAfterExecution = new Date();
+        let msTaken = timeAfterExecution - currentTime;
+        this.timeTaken = msTaken;
         return resultArray;
     }
 }
