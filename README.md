@@ -1,2 +1,31 @@
 # RapidResolve
 RapidResolve works its magic on all your promises, seamlessly accelerating their resolution for lightning-fast results. Experience the power of swift execution as RapidResolve takes the lead in optimizing your asynchronous operations, making delays a thing of the past.
+
+
+# Example
+
+```js
+const RapidResolve = require("./index");
+
+
+async function sayNumber(n){
+    let str = `Current number ${n}`;
+    return str;
+}
+
+let testArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+
+async function run() {
+    let CONCURRENCY = 5;
+    let DELAY = 3;
+    let RATELIMIT = 0;
+    let EngineDescription = new RapidResolve(CONCURRENCY,DELAY,RATELIMIT);
+    let Engine = EngineDescription.make(sayNumber, testArray);
+    let output = await Engine.execute();
+    console.log(output)
+}
+
+
+run()
+```
