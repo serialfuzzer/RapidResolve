@@ -8,12 +8,12 @@ RapidResolve works its magic on all your promises, seamlessly accelerating their
 const RapidResolve = require("./index");
 
 
-async function sayNumber(n){
+async function Runner(n){
     let str = `Current number ${n}`;
     return str;
 }
 
-let testArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+let args = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
 
 
 async function run() {
@@ -21,7 +21,7 @@ async function run() {
     let DELAY = 3;
     let RATELIMIT = 0;
     let EngineDescription = new RapidResolve(CONCURRENCY,DELAY,RATELIMIT);
-    let Engine = EngineDescription.make(sayNumber, testArray);
+    let Engine = EngineDescription.make(Runner, args);
     let output = await Engine.execute();
     console.log(output)
 }
